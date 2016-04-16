@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body style="direction: rtl;">
+    <img src="{{ url_for('static', filename='img/logo.png')}}" />
+    <h3>{{ page }}</h3>
+    {% for post in posts %}
+        <p> {{ post }} </p>
+    {% endfor %}
+    
+</body> 
+</html>
+

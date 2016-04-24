@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body style="direction: rtl;">
+    <img src="{{ url_for('static', filename='img/logo.png')}}" />
+    <h3>{{ page }}</h3>
+    {% for post in posts %}
+    <a href="post/{{ post[0] }}"><h2> {{ post[1] }} </h2></a>
+    <a href="delete/{{ post[0] }}"><h6>حذف</h6></a>
+        <p> {{ post[2] }} </p>
+    {% endfor %}
+       <br>
+       <br>
+       <br>
+    <div class="create_form">
+        <form action="{{ url_for('create') }}" method="POST">
+      <input type="text" name="title"/>
+       <br>
+       <br>
+       <br>
+       <textarea name="content" cols="30" rows="10"></textarea>
+       <br>
+       <input type="submit" value="أضف" />
+        </form>
+    </div>    
+</body> 
+</html>
+

@@ -9,8 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     posts = manage_db.get_posts()
-    return render_template('index.html', posts = posts, page = u"صفحة عرض المقالات")
-
+    return render_template('index.html', posts = posts)
 
 # Create Post Page
 @app.route("/create", methods=['GET', 'POST'])
@@ -27,7 +26,7 @@ def create():
 @app.route("/post/<post_id>")
 def post(post_id):
     post = manage_db.get_post_by_id(post_id)
-    return render_template('post.html', post = post, page = u"صفحة مقال واحد")
+    return render_template('post.html', post = post)
 
 
 # Delete Post 

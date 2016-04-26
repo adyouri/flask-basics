@@ -11,6 +11,7 @@ def home():
     posts = manage_db.get_posts()
     return render_template('index.html', posts = posts)
 
+
 # Create Post Page
 @app.route("/create", methods=['GET', 'POST'])
 def create():
@@ -19,7 +20,6 @@ def create():
         content = request.form['content']
         manage_db.create(title, content)
     return redirect(url_for('home'))
-
 
 
 # Single Post Page

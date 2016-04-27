@@ -12,22 +12,21 @@
     
     <div class="main">
     {% for post in posts %}
-    <a href="post/{{ post[0] }}"><h2> {{ post[1] }} </a>
-    <a href="delete/{{ post[0] }}"><span class="delete">حذف</span></a>
-    </h2>
+        <a href="post/{{ post[0] }}"><h2> {{ post[1] }} </a>
+        <a href="delete/{{ post[0] }}"><span class="delete">حذف</span></a></h2>
         <p> {{ post[2] }} </p>
     {% endfor %}
     
        <h4>أضف مقالا</h4>
     <div class="create_form">
         <form action="{{ url_for('create') }}" method="POST">
-      <input class="input" type="text" name="title" placeholder="عنوان المقال"/>
-       <br>
-       <br>
-       <br>
-       <textarea name="content"  class="input" rows="10" placeholder="مُحتوى المقال"></textarea>
-       <br>
-       <input type="submit" value="أضف" />
+            <input class="input" type="text" name="title" placeholder="عنوان المقال"/>
+           <br>
+           <br>
+           <br>
+           <textarea name="content"  class="input" rows="10" placeholder="مُحتوى المقال"></textarea>
+           <br>
+           <input type="submit" value="أضف" />
         </form>
     </div>    
     </div>

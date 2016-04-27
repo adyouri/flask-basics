@@ -1,4 +1,5 @@
 import sqlite3
+
 def create(title, content):
     db = sqlite3.connect('database.db')
     cursor = db.cursor()

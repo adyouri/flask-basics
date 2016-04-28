@@ -32,7 +32,7 @@ def post(post_id):
 # Delete Post 
 @app.route("/delete/<post_id>")
 def delete(post_id):
-    post = manage_db.delete(post_id)
+    manage_db.delete(post_id)
     return redirect(url_for('home')) 
 
 

@@ -1,10 +1,13 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 * {
-    font-family: Droid Arabic Naskh;
+    font-family: 'Droid Arabic Naskh', serif;
 }
+
 body {
     margin-top:50px;
     text-align: center;
 }
+
 .main {
     max-width: 600px;
     margin: 0 auto;
@@ -19,10 +22,12 @@ p {
     margin-bottom: 80px;
     
 }
+
 a{
     color: #16A765;
     text-decoration: none;
 }
+
 .delete {
     color: #ffffff;
     border-radius: 2px;
@@ -30,15 +35,18 @@ a{
     background-color: #DD4B39;
     font-size: 10px;
 }
+
 .logo {
     width: 20px;
     margin-bottom:-30px;
 }
+
 h3{
     font-size: 22px;
     color: #1383EA;
     margin-bottom:50px;
 }
+
 h4{
     font-size: 22px;
     text-align: right;
@@ -47,11 +55,13 @@ h4{
     width: 130px;
     margin-top:55px;
 }
+
 .back_to_home {
     font-size: 12px;
     color: #666;
     text-decoration: underline;
 }
+
 hr {
     width: 400px;
     color: #666;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>مُدوّنتي</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body style="direction: rtl;">
+
+
+    {% if session['logged_in'] != True %}
+    <form action="{{ url_for('login') }}" method='POST'>
+        <input type="text" placeholder="Username" name="username">
+        <input type="password" placeholder="Password" name="password">
+        <input type="submit" value="اُدخُل">
+    </form>  
+    {% endif %} 
+
+
+    <img src="{{ url_for('static', filename='img/logo.png')}}" class="logo" />
+    <h3>مُدوّنتي</h3>
+   
+    <div class="main">
+    {% for post in posts %}
+        
+        <a href="post/{{ post[0] }}"><h2> {{ post[1] }} </a>
+        <a href="delete/{{ post[0] }}"><span class="delete">حذف</span></a></h2>
+        
+        <p> {{ post[2] }} </p>
+    {% endfor %}
+   
+    
+       <h4>أضف مقالا</h4>
+    <div class="create_form">
+        <form action="{{ url_for('create') }}" method="POST">
+            <input class="input" type="text" name="title" placeholder="عنوان المقال"/>
+           <br>
+           <br>
+           <br>
+           <textarea name="content"  class="input" rows="10" placeholder="مُحتوى المقال"></textarea>
+           <br>
+           <input type="submit" value="أضف" />
+        </form>
+    </div>    
+    </div>
+</body> 
+</html>
+

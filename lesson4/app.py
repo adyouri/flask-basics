@@ -47,7 +47,11 @@ def login():
             return redirect(url_for('home'))
     return redirect(url_for('home'))
 
-
+# Logout Route
+@app.route("/logout")
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('home'))
 
 
 if __name__ == "__main__":

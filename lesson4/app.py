@@ -3,7 +3,9 @@ from flask import Flask, render_template, redirect, url_for, request, session
 import manage_db
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'jhlkmh'
+app.config['SECRET_KEY'] = 'Secret!!!'
+app.config['USERNAME']   = 'admin'
+app.config['PASSWORD']   = 'password'
 
 # Home Page
 @app.route("/")
@@ -41,7 +43,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username == "a" and password == "a":
+        if username == app.config['USERNAME'] and password == app.config['PASSWORD']:
             session['logged_in'] = True
         else:
             return redirect(url_for('home'))

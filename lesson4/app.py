@@ -3,10 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request, session
 import manage_db
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Secret!!!'
-app.config['USERNAME']   = 'admin'
-app.config['PASSWORD']   = 'password'
-
+app.config.from_object('config')
 # Home Page
 @app.route("/")
 def home():

@@ -7,6 +7,10 @@
 </head>
 <body style="direction: rtl;">
 
+        {% for msg in get_flashed_messages() %}
+        <div class="flash"> {{ msg }} </div>
+        {% endfor %}
+
     {% if 'logged_in' not in session %}
     <form action="{{ url_for('login') }}" method='POST'>
         <input type="text" placeholder="اسم المُستخدم" name="username">

@@ -26,7 +26,7 @@ def create():
 @app.route("/post/<post_id>")
 def post(post_id):
     post = manage_db.get_post_by_id(post_id)
-    return render_template('post.html', post = ["مرحبا", "هههه", "وات"])
+    return render_template('post.html', post = post)
 
 
 # Delete Post 

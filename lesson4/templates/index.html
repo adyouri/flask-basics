@@ -7,12 +7,16 @@
 </head>
 <body style="direction: rtl;">
 
-   <form action="{{ url_for('login') }}" method='POST'>
+{% if 'logged_in' not in session %}
+    <form action="{{ url_for('login') }}" method='POST'>
         <input type="text" placeholder="اسم المُستخدم" name="username">
         <input type="password" placeholder="كلمة المرور" name="password">
         <input type="submit" value="اُدخُل">
     </form>  
-
+{% else %}
+        <a class="logout" href="{{ url_for('logout') }}">خروج</a>
+{% endif %}
+<br>
     <img src="{{ url_for('static', filename='img/logo.png')}}" class="logo" />
     <h3>مُدوّنتي</h3>
     

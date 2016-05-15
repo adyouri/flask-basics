@@ -1,9 +1,22 @@
 # -*- coding:utf8 -*-
 from flask import Flask, render_template, redirect, url_for, request, session
 import manage_db
+from functools import wraps
+
+
+def login_required(function):
+    @wraps(function) 
+    def wrapper(*args, **kwargs):
+        if 'logged_in' in session:
+            return function(*args, **kwargs)
+        else:
+            return redirect(url_for('home'))
+    return wrapper
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "Secret"
+
 
 # Home Page
 @app.route("/")
@@ -14,6 +27,7 @@ def home():
 
 # Create Post Page
 @app.route("/create", methods=['GET', 'POST'])
+@login_required
 def create():
     if request.method == 'POST':
         title = request.form['title']
@@ -31,6 +45,7 @@ def post(post_id):
 
 # Delete Post 
 @app.route("/delete/<post_id>")
+@login_required
 def delete(post_id):
     manage_db.delete(post_id)
     return redirect(url_for('home')) 

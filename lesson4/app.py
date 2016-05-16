@@ -54,12 +54,6 @@ def delete(post_id):
 # Login Route
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    """ Make session last for only 30 min 
-            # import: from datetime import timedelta
-            session['logged_in'] = True
-            session.permanent = True
-            app.permanent_session_lifetime = timedelta(minutes=30)
-    """
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']

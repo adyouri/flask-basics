@@ -2,6 +2,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 import manage_db
 from functools import wraps
+from datetime import timedelta
 
 
 def login_required(function):
@@ -57,12 +58,16 @@ def delete(post_id):
 # Login Route
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    session['logged_in'] = True
+    session.permanent = True
+    # Make session last for only 30 min 
+    app.permanent_session_lifetime = timedelta(minutes=30)
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         if username == "admin" and password == "password":
             session['logged_in'] = True
-            flash(u'سُجّل دخولك بنجاح!')
+            flash(u'سُجّل دخولك بنجاح، ستبقى مُسجّلا لمدّة نصف ساعة فقط.')
         else:
             return redirect(url_for('home'))
     return redirect(url_for('home'))

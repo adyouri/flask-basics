@@ -7,7 +7,7 @@
 </head>
 <body style="direction: rtl;">
     {% for message in get_flashed_messages() %}
-    <div> {{ message }} </div>
+    <div class="flash"> {{ message }} </div>
     {% endfor %}
 
 {% if 'logged_in' not in session %}

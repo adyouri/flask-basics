@@ -70,3 +70,11 @@ hr {
 .input {
     width: 500px;
 }
+
+.flash {
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #d89516;
+    padding: 3px;
+    background: #F9EDBE;
+}
